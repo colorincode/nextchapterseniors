@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "lib": ["dom", "dom.iterable","dom.asynciterable", "esnext", "ES2016", "ES2017","ES2020", "ES5", "ES6" ],
+      "allowJs": true,
+      "allowImportingTsExtensions":true,
+      "checkJs": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "strictNullChecks": false,
+      "forceConsistentCasingInFileNames": false,
+      "noFallthroughCasesInSwitch": true,
+      "noEmit": true,
+      "module": "ESNext",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "incremental": true,
+      "noUncheckedIndexedAccess": true,
+      "baseUrl": "./",
+      "types": ["https://deno.land/x/pkg@1.0.0/types.d.ts",],
+      "paths": {
+        "~/*": ["./src/*" , "./src/ts/*",]
+      }
+    },
+    "exclude": [
+        "node_modules",
+        "working-files",
+        "prod",
+        "dist",
+    ]
+  }

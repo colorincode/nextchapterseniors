@@ -1,0 +1,10 @@
+@forward './_mixins.scss';
+@forward './_colors.scss';
+@forward './_variables.scss';
+@forward './_resets.scss';
+
+// @forward './navbar.scss';
+@forward './_fonts.scss';
+@forward './_components.scss' ;
+@forward '../../node_modules/@splidejs/splide/dist/css/splide.min.css';
+// @forward '../../node_modules/@splidejs/splide/dist/css/splide.min.css';

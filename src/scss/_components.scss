@@ -1,0 +1,127 @@
+
+        /* Base button styles for neumorphism */
+        .button {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #4a4a4a;
+            border: none;
+            border-radius: 50px;
+            background: #e0e0e0;
+            box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            box-shadow: 3px 3px 8px #bebebe, -3px -3px 8px #ffffff;
+        }
+
+        .button:active {
+            box-shadow: inset 3px 3px 8px #bebebe, inset -3px -3px 8px #ffffff;
+        }
+
+        /* Star icon styles */
+        .star::before {
+            content: "★";
+            margin-right: 8px;
+            color: #4a4a4a;
+        }
+
+        /* First button (circular with star) */
+        .button-first {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .button-first::before {
+            content: "★";
+            margin: 0;
+        }
+
+        /* Second button (First with star) */
+        .button-second {
+            width: 120px;
+            height: 50px;
+        }
+
+        /* Third button (Second with star) */
+        .button-third {
+            width: 120px;
+            height: 50px;
+        }
+
+        /* Fourth button (Label dropdown) */
+        .button-fourth {
+            width: 180px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .button-fourth::after {
+            content: "▼";
+            font-size: 12px;
+        }
+
+        /* Fifth button (Label with checkbox) */
+        .button-fifth {
+            width: 120px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            border: 2px dashed #a0a0a0;
+            box-shadow: none;
+        }
+
+        .button-fifth::before {
+            content: "✔";
+            font-size: 16px;
+            color: #4a4a4a;
+        }
+
+        /* Sixth button (Label with star in a box) */
+        .button-sixth {
+            width: 120px;
+            height: 50px;
+            border: 2px solid #a0a0a0;
+            box-shadow: none;
+        }
+
+        /* Seventh button (X button) */
+        .button-seventh {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Eighth button (Hug button) */
+        .button-eighth {
+            width: 180px;
+            height: 40px;
+            background: #e0c0ff;
+            color: #ffffff;
+            font-size: 14px;
+            box-shadow: 3px 3px 8px #bebebe, -3px -3px 8px #ffffff;
+        }
+
+        /* Small circular button with star */
+        .button-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .button-small::before {
+            content: "★";
+            margin: 0;
+        }

@@ -1,0 +1,122 @@
+{
+  "version": "0.0.1",
+  "description": "General boilerplate library for deno from Color in Code",
+  "author": "Color in Code <(colorincodeme@gmail.com)>",
+  "homepage": "https://github.com/colorincode/deno",
+  "tasks": {
+    "patch-fontawesome":"deno run --allow-all ./utils/patch-fontawesome-sass.ts",
+    "clean": "deno run --allow-all clear.ts",
+    "dev": "deno run --allow-all --watch dev.ts",
+    "prod": "deno run --allow-all prod.ts",
+    "lint": "biome lint ./prod",
+    "lint:fix": "biome check --write ./prod"
+},
+"nodeModulesDir": "auto",
+  "imports": {
+    "@awesome.me/kit-e56bb8c3d5": "npm:@awesome.me/kit-e56bb8c3d5@^1.0.6",
+    "@biomejs/biome": "npm:@biomejs/biome@^1.9.4",
+    "@splidejs/splide": "npm:@splidejs/splide@^4.1.4",
+    "@splidejs/splide-extension-intersection": "npm:@splidejs/splide-extension-intersection@^0.2.0",
+    "@typeform/embed": "npm:@typeform/embed@^5.5.0",
+    "autoprefixer": "npm:autoprefixer@^10.4.21",
+    "browserslist": "npm:browserslist@4.24.5",
+    "@oak/oak": "jsr:@oak/oak@^17.1.4",
+    "@std/fmt": "jsr:@std/fmt@^1.0.8",
+    "@std/fs": "jsr:@std/fs@^1.0.17",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.4",
+    "@std/http": "jsr:@std/http@^1.0.16",
+    "@std/path": "jsr:@std/path@^1.0.9",
+    "@std/assert": "jsr:@std/assert@^1.0.13",
+    "@std/cli": "jsr:@std/cli@^1.0.17",
+    "@std/jsonc": "jsr:@std/jsonc@^1.0.2",
+    "@std/net": "jsr:@std/net@1",
+    "@std/testing": "jsr:@std/testing@^1.0.12",
+    "@trpc/client": "npm:@trpc/client@^11.1.2",
+    "@trpc/server": "npm:@trpc/server@^11.1.2",
+    "esbuild": "npm:esbuild@^0.25.4",
+    "gsap": "npm:gsap@^3.13.0",
+    "lenis": "npm:lenis@^1.3.3",
+    "lighthouse": "npm:lighthouse@^12.6.0",
+    "lightningcss": "npm:lightningcss@^1.30.1",
+    "postcss": "npm:postcss@^8.5.3",
+    "postcss-custom-media": "npm:postcss-custom-media@^11.0.5",
+    "postcss-import": "npm:postcss-import@^16.1.0",
+    "postcss-loader": "npm:postcss-loader@^8.1.1",
+    "postcss-utilities": "npm:postcss-utilities@^0.8.4",
+    "posthtml": "npm:posthtml@^0.16.6",
+    "posthtml-include": "npm:posthtml-include@^2.0.1",
+    "reveal.js": "npm:reveal.js@^5.2.1",
+    "sass": "npm:sass@^1.89.0",
+    "sharp": "npm:sharp@^0.33.5",
+    "three": "npm:three@^0.175.0",
+    "zod": "npm:zod@^3.24.4"
+  },
+"lint": {
+  "mode": "none"
+},
+  "unstable": [
+    "kv",
+    "net",
+    "http",
+    "fs",
+    "ffi",
+    "cron",
+    "temporal",
+    "webgpu",
+    "unsafe-proto",
+    "otel",
+    "webgpu"
+  ],
+  "fmt": {
+    "lineWidth": 80,
+    "semiColons": false,
+    "useTabs": false,
+    "indentWidth": 2,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      ".deno-kit/**",
+      "!fixtures"
+    ]
+  },
+    "compilerOptions": {
+      "exactOptionalPropertyTypes": true,
+      
+      "lib": [
+        "esnext",
+        "deno.window",
+        "deno.ns",
+        "deno.unstable"
+      ]
+    },
+    "devDependencies": {
+      "@biomejs/biome": "npm:@biomejs/biome@^1.9.4",
+      "@types/deno": "^2.2.0",
+      "@types/node": "^22.10.5",
+      "eslint": "^8.57.1",
+      "eslint-config-stylelint": "^22.0.0",
+      "postcss": "^8.4.49",
+      "postcss-custom-properties": "^14.0.4",
+      "postcss-import": "^16.1.0",
+      "postcss-modules": "^6.0.1",
+      "postcss-nested": "^6.2.0",
+      "rimraf": "^6.0.1"
+    },
+    "peerDependencies": {
+      "typescript": "^5.6.2"
+    },
+    "dependencies": {
+      "@types/websocket": "^1.0.10",
+      "browserslist": "^4.24.4",
+      "glob": "^11.0.1",
+      "lightningcss": "^1.29.1",
+      "posthtml": "^0.16.6",
+      "posthtml-include": "^2.0.1",
+      "prettier": "^3.4.2",
+      "sass": "^1.83.1",
+      "sharp": "^0.33.5"
+    }
+}
