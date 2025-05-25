@@ -440,6 +440,11 @@ body {
 .service-card-icon {
   font-size: var(--header);
 }
+.fa-services-icons {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 4rem;
+}
 
 .service-card--img {
     object-fit: cover;
@@ -707,7 +712,7 @@ body {
         padding: 1.5rem;
     }
     .leadin--header--outerwrapper {
-        min-height: 31.5vh;
+        min-height: 25.5vh;
         background: url('../../assets/main-lead.jpg') center top / cover;
     }
     .leadin--header--innerwrapper {

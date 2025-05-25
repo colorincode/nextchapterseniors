@@ -28,7 +28,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    @media screen and (max-width:1367px) {
+    @media screen and (max-width:1367px) and (min-width:942px) {
         width: 98%;
     }
      @media screen and (min-width:1368px) {
@@ -128,17 +128,6 @@
 }
 .hamburger {
   display: none;
-  flex-direction: column;
-//   gap: 2px;
-  border: none;
-//   background: var(--semi-transparent);
-  background: var(--vanilla);
-  cursor: pointer;
-  z-index: 200;
-//   border-radius: 2px;
-  padding-top: 3px;
-  box-shadow: 3px 2px 3px #0000001a;
-  height: 34px;
 }
 .hamburger.open {
     padding-top: 0px;
@@ -166,7 +155,7 @@
     	transform: translate(0px, -5px) rotate(135deg);
 }
 
-@media (max-width: 942px) {
+@media screen and (max-width: 942px) {
 
     .header--top--global {
         padding: 0;
@@ -217,13 +206,24 @@
   }
   .hamburger {
     display: flex;
+    flex-direction: column;
+//   gap: 2px;
+    border: none;
+    //   background: var(--semi-transparent);
+    background: var(--vanilla);
+    cursor: pointer;
+    z-index: 200;
+    //   border-radius: 2px;
+    padding-top: 3px;
+    box-shadow: 3px 2px 3px #0000001a;
+    height: 34px;
   }
 }
 
 
 @keyframes bar-one-animate {
 	0%{
-		transform: translate(0px, 0px) rotate(0deg)
+		transform: translate(0px, 0px) rotate(0deg);
 	}
 	60% {
 		transform: translate(0px, 10px) rotate(0deg);
@@ -249,7 +249,7 @@
 
 @keyframes bar-three-animate {
 	0%{
-		transform: translate(0px, 0px) rotate(0deg)
+		transform: translate(0px, 0px) rotate(0deg);
 	}
 	40% {
 		transform: translate(0px, -3px) rotate(0deg);
