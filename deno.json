@@ -86,6 +86,9 @@
       "exactOptionalPropertyTypes": true,
       
       "lib": [
+        "dom",
+        "dom.asynciterable",
+        "dom.iterable",
         "esnext",
         "deno.window",
         "deno.ns",

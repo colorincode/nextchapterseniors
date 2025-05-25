@@ -4,14 +4,15 @@
 .header--top--global {
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 1000;
     padding: 30px 0 40px 0;
     display: flex;
     overflow: hidden;
     width: 100%;
 }
 .navbar--top {
-    background: hsla(46, 98%, 84%, 0.8);
+    // background: hsla(46, 98%, 84%, 0.8);
+    border: 1px solid var(--semi-transparent);
     backdrop-filter: blur(13px);
     box-shadow: 0 4px 6px #0000001a;
     // box-shadow: 0 4px 6px var(--sunglow);
@@ -48,8 +49,12 @@
     align-items: flex-start;
     align-content: space-between;
     margin: 0;
-    // justify-content: space-between;
-    // justify-content: start;
+    flex-wrap: wrap;
+    justify-items: flex-start;
+    justify-content: space-evenly;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
     width: 100%;
 }
 .navbar--bottom {}
@@ -82,6 +87,9 @@
     text-transform: capitalize;
     white-space: nowrap;
     
+}
+.navbar__item__link--horizontal:hover {
+    color: var(--vanilla-ok);
 }
 .navbar__item__img--horizontal {
     width: auto;
@@ -123,12 +131,17 @@
   flex-direction: column;
 //   gap: 2px;
   border: none;
+//   background: var(--semi-transparent);
   background: var(--vanilla);
   cursor: pointer;
   z-index: 200;
-  border-radius: 2px;
+//   border-radius: 2px;
+  padding-top: 3px;
   box-shadow: 3px 2px 3px #0000001a;
   height: 34px;
+}
+.hamburger.open {
+    padding-top: 0px;
 }
 
 .hamburger span {
@@ -153,11 +166,13 @@
     	transform: translate(0px, -5px) rotate(135deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 942px) {
 
     .header--top--global {
-        padding: 1.5rem 1rem;
+        padding: 0;
         width: auto;
+        height: 34px;
+        margin: 1.5rem 1rem;
     }
     .navbar--top {
         background: none;
@@ -180,17 +195,22 @@
     max-width: 320px;
     // min-height: 680px;
     // background: #fff;
+    // background: var(--semi-transparent);
     background: hsla(47, 93%, 72%, 0.799);
     backdrop-filter: blur(13px);
     flex-direction: column;
-    align-items: flex-start;
+    // align-items: flex-start;
     padding: 4rem 2rem;
     gap: 2rem;
     transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    box-shadow: 1px 0 4px rgba(0,0,0,0.15);
     transition: none;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    align-content: center;
   }
   .navbar__list--horizontal.active {
     pointer-events: auto;
