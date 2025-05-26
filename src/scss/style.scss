@@ -10,7 +10,7 @@ body {
   font-family: var(--ff-geneo-std);
   font-size: var(--paragraph);
   color: color-mix(in oklab, var(--off-black) 90%, var(--off-white) 10%);
-  padding: 1rem 0.5rem;
+  padding: 1rem 1rem;
 }
 .section--heading {
   font-family: var(--ff-degular);
@@ -108,9 +108,10 @@ body {
   grid-template-columns: minmax(0, 30%) minmax(0, 70%);
   gap: 1rem;
   display: grid;
-  max-width: 90rem;
-  width: 90%;
-  margin: 0 auto;
+  // max-width: 90rem;
+  // width: 90%;
+  width: 100%;
+  margin: 2rem auto;
   background: color-mix(
     in oklab,
     var(--vanilla-hsla) 10%,
@@ -212,6 +213,8 @@ body {
   color-mix(in oklab, var(--sunglow-ok) 20%, var(--off-white) 80%);
   border-radius: 10px;
   box-shadow: 0 4px 8px #2419191a;
+  margin-block-start: 0;
+  padding-inline-start: 0;
 }
 .howitworks__list--span {
   // color: color-mix(in oklab, var(--sunglow-ok) 80%, var(--off-black) 20%);
