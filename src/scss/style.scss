@@ -10,7 +10,7 @@ body {
   font-family: var(--ff-geneo-std);
   font-size: var(--paragraph);
   color: color-mix(in oklab, var(--off-black) 90%, var(--off-white) 10%);
-  padding: 1rem 0.5rem;
+  padding: 1rem 0;
 }
 .section--heading {
   font-family: var(--ff-degular);
@@ -187,9 +187,13 @@ body {
 //   // border-top: 1px solid var(--butterscotch);
 // }
 .howitworks__gridwrapper {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  // gap: 2rem;
+  // display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
 }
 .howitworks--textvariant {
   color: color-mix(in oklab, var(--maya-blue-ok) 70%, var(--off-black) 30%);
@@ -200,6 +204,10 @@ body {
   text-align: left;
   word-wrap: normal;
   line-height: 1.25;
+
+  // changed
+  transition: opacity 0.7s ease-in-out;
+  opacity: 0;
 }
 .howitworks__list {
   list-style: none;
@@ -234,20 +242,45 @@ body {
   word-wrap: normal;
   line-height: 1.25;
 }
+
 .howitworks__gridcard {
+  max-width: 214px;
   padding: 1.5rem;
   border-radius: 10px;
   background: color-mix(in oklab, var(--uranian-blue) 20%, var(--off-white) 20%);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   // box-shadow: 3px 3px 8px #bebebe, -3px -3px 8px #ffffff;
   // box-shadow: inset 3px 3px 8px var(--maya-blue), inset -3px -3px 8px #ffffff;
-  box-shadow: 3px 3px 8px var(--uranian-blue), -20px -20px 60px #ffffff;
+  box-shadow: 3px 3px 8px var(--uranian-blue), -20px -20px 10px #ffffff;
 }
-.howitworks__gridcard:active , .howitworks__gridcard:hover {
-  box-shadow: inset 3px 3px 8px var(--maya-blue), inset -3px -3px 8px #ffffff;
-  transform: translateY(-5px);
-  // box-shadow: inset 3px 3px 8px #bebebe, inset -3px -3px 8px #ffffff;
+// changed added class
+.howitworks__gridcard:hover .howitworks--transition__wrapper {
+  transform: translateY(0);
 }
+// changed added class
+.howitworks__gridcard:hover .howitworks--paragraphtext {
+  opacity: 1;
+}
+// changed added class
+.howitworks__gridcard:hover .fa-howitworks-caret {
+  transform: rotate(180deg);
+}
+// changed added class
+.howitworks--transition__wrapper {
+  // changed
+  transition: transform 0.5s ease-in-out;
+  transform: translateY(100px);
+}
+// changes
+.howitworks__gridcard:hover {
+  cursor: pointer;
+}
+// changed removed
+// .howitworks__gridcard:active , .howitworks__gridcard:hover {
+//   box-shadow: inset 3px 3px 8px var(--maya-blue), inset -3px -3px 8px #ffffff;
+//   transform: translateY(-5px);
+//   // box-shadow: inset 3px 3px 8px #bebebe, inset -3px -3px 8px #ffffff;
+// }
 .whychoose__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -286,8 +319,9 @@ body {
     border-radius: 5px;
     justify-content: center;
     align-items: center;
-    max-width: 204px;
-    height: 204px;
+    width: 100%;
+    // height: 204px;
+    aspect-ratio: 1 / 1;
     // max-width: 306px;
     // height: 204px;
     // height: fit-content;
@@ -437,13 +471,15 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-card-icon {
-  font-size: var(--header);
+// changed
+.fa-howitworks-caret {
+    font-size: clamp(1.5rem, .875rem + .625vw, 2rem);
+    transition: all 0.3s ease-in-out;
 }
 .fa-services-icons {
-  color: #fff;
-  margin-top: 20px;
-  font-size: 4rem;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 4rem;
 }
 
 .service-card--img {
@@ -532,8 +568,9 @@ body {
 .splide__track--blockquote {
     font-family: var(--ff-acumin-pro);
     font-size: var(--paragraph);
+    font-style: italic;
     color: color-mix(in oklab, var(--orange-crayola-ok) 90%, var(--off-black) 10%);
-    text-align: center;
+    text-align: left;
     word-wrap: normal;
     line-height: 1.75;
     padding: 3rem 2rem 1rem 2rem;
@@ -541,6 +578,30 @@ body {
 .splide__track--blockquote-third {
   line-height: 1.5;
   padding: 3rem 2rem 1rem 1rem;
+}
+.splide__track--blockquote::before,
+.splide__track--blockquote::after {
+    font-family: 'rift',sans-serif;
+    font-size: 4em;
+    position: absolute;
+    // color: var(--quote-marks-color);
+    opacity: 0.6;
+}
+.splide__track--blockquote::before {
+    content: "\201C";
+    left: 10;
+    top: -20px;
+    @media screen and (max-width:1024px) {
+        top: 0;
+    }
+}
+.splide__track--blockquote::after {
+    content: "\201D";
+    right: 25;
+    bottom: -20px;
+    @media screen and (max-width:1024px) {
+        bottom: 0;
+    }
 }
 .splide__track--text {
     font-family: var(--ff-acumin-pro);
