@@ -82,7 +82,7 @@
     font-weight: var(--semibold);
     color: var(--off-black);
     font-size: 1rem;
-    letter-spacing: .095em;
+    // letter-spacing: .095em;
     line-height: 1;
     text-transform: capitalize;
     white-space: nowrap;
@@ -98,7 +98,7 @@
 .navbar__item__link--vertical {
     font-weight: 500;
     font-size: .8125rem;
-    letter-spacing: .075em;
+    // letter-spacing: .075em;
     line-height: 1;
     text-transform: capitalize;
     white-space: nowrap;
@@ -108,7 +108,12 @@
     border-radius: 0.5rem;
     padding: 1rem 1.75rem;
     box-shadow: 3px 2px 3px #0000001a;
+    transition: all 0.3s ease;
     
+}
+.cta--btn:hover {
+    background-color: var(--orange-crayola);
+    // transform: translateY(-3px);
 }
 .cta--text {
     //  color: oklch(0.34 0.1432 63.6); //variant of butterscotch
