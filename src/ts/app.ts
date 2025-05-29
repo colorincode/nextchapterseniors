@@ -9,6 +9,7 @@ import { Power4 } from 'gsap';
 import Observer from 'gsap';
 import Timeline from 'gsap';
 import ScrollToPlugin from 'gsap';
+import SplitText from 'gsap';
 import './module.ts';
 import Splide from '@splidejs/splide';
 import { Intersection } from '@splidejs/splide-extension-intersection';
@@ -42,6 +43,7 @@ gsap.registerPlugin(Timeline);
 gsap.registerPlugin(Power4);
 gsap.registerPlugin(Observer);
 gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(SplitText);
 // const window: Window & typeof globalThis;
 let mm = gsap.matchMedia(),
     breakPoint = 800;
@@ -325,6 +327,41 @@ function setupHamburgerMenu() {
     }
   });
 }
+
+
+
+// document.fonts.ready.then(() => {
+//   let text = document.querySelector(".howitworks--paragraphtext") as HTMLElement;
+//   gsap.set(text, { opacity: 1 });
+//   let mySplitText = SplitText.create(text, {
+//     type: "chars, words",
+//     charsClass: "char"
+//   });
+//   let chars = mySplitText.chars;
+
+//   document.querySelector(".howitworks__gridcard").addEventListener("mouseover", (e) => {
+//     if (!text.isSplit) {
+//       mySplitText.split({
+//         type: "chars, words",
+//         charsClass: "char"
+//       });
+//     }
+//     gsap.from(chars, {
+//       duration: 3,
+//       opacity: 0,
+//       scale: 0,
+//       y: 80,
+//       rotationX: 180,
+//       transformOrigin: "0% 50% -50",
+//       ease: "back",
+//       stagger: 0.05,
+//       onComplete: () => {
+//         mySplitText.revert();
+//         text.removeAttribute("aria-hidden");
+//       }
+//     });
+//   });
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
