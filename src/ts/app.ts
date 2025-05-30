@@ -215,7 +215,6 @@ function setupClickOutside() {
 function setupHamburgerMenu() {
   // Initial mobile menu state
 
-  
   // gsap.set(navList, { x: '-100%', opacity: 0, pointerEvents: 'none' });
 
   hamburger.addEventListener('click', () => {
