@@ -20,7 +20,7 @@
       "incremental": true,
       "noUncheckedIndexedAccess": true,
       "baseUrl": "./",
-      "types": ["https://deno.land/x/pkg@1.0.0/types.d.ts",],
+      "types": ["https://deno.land/x/pkg@1.0.0/types.d.ts", "/node_modules/gsap/types"],
       "paths": {
         "~/*": ["./src/*" , "./src/ts/*",]
       }

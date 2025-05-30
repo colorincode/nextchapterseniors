@@ -205,6 +205,10 @@
     justify-content: space-evenly;
     text-align: center;
     align-content: center;
+    @media screen and (max-width: 768) {
+        height: 100dvh;
+        padding: 0 2rem;
+    }
   }
   .navbar__list--horizontal.active {
     pointer-events: auto;
