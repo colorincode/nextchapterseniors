@@ -173,8 +173,11 @@ function setupSmoothAnchors() {
             return;
           }
           console.log('Scrolling to:', href, target); // Debug
-          smoother.scrollTo(target, true, "top 70px", );
-
+          smoother.scrollTo(target, true, "top 70px",  );
+          // smoother.scrollTo(target, {
+          //   top: 70,
+          // }, true)
+            // true, "top 70px",  );
           mm.add("(max-width: 786px)", () => {
             gsap.delayedCall(0.5, () => {
               
