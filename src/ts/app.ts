@@ -1,19 +1,36 @@
 
 //optional import tests only, these are not crucial to build steps
 // deno-lint-ignore-file
-// import * as THREE from 'three';
-import gsap, { SteppedEase} from 'gsap'
-import Draggable from 'gsap';
-import EasePack from 'gsap';
-import { Power4 } from 'gsap';
-import Observer from 'gsap';
-import Timeline from 'gsap';
-import ScrollToPlugin from 'gsap';
-import SplitText from 'gsap';
-import './module.ts';
+// import gsap from "gsap";
+// import Draggable from "gsap";
+// import EasePack from "gsap";
+// import { Power4 } from "gsap";
+// import Observer from "gsap";
+// import Timeline from "gsap";
+// import  InertiaPlugin  from "gsap";
+// import  ScrollTrigger  from "gsap";
+// import  { ScrollSmoother }  from "gsap/ScrollSmoother";
+// import  ScrollToPlugin  from "gsap";
+// import SplitText from 'gsap';
+import { gsap } from "gsap";
+import { ExpoScaleEase } from "gsap/EasePack";
+import { Flip } from "gsap/Flip";
+import { InertiaPlugin } from "gsap/InertiaPlugin";
+import { Observer } from "gsap/Observer";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Splide from '@splidejs/splide';
 import { Intersection } from '@splidejs/splide-extension-intersection';
 
+
+//gsap registration, global scope
+gsap.registerPlugin(Flip,InertiaPlugin,Observer,ScrollTrigger,ScrollSmoother,ScrollToPlugin,ExpoScaleEase);
+
+
+// console.log("GSAP Version:", gsap.version); // Should log "3.13.0"
+// console.log("ScrollSmoother Available:", !!gsap.plugins.scrollSmoother); // Should log true
+// console.log("ScrollSmoother:", ScrollSmoother); // Should log constructor function
 const splide = new Splide( '.splide', {
   type    : 'loop',
   autoplay: 'pause',
@@ -36,14 +53,7 @@ splide.mount();
 splide.on( 'intersection:in', function ( entry: { target: any } ) {
   console.log( 'in', entry.target );
 } );
-//gsap registration, global scope
-gsap.registerPlugin(EasePack);
-gsap.registerPlugin(SteppedEase);
-gsap.registerPlugin(Timeline);
-gsap.registerPlugin(Power4);
-gsap.registerPlugin(Observer);
-gsap.registerPlugin(ScrollToPlugin);
-gsap.registerPlugin(SplitText);
+
 // const window: Window & typeof globalThis;
 let mm = gsap.matchMedia(),
     breakPoint = 800;
@@ -52,10 +62,11 @@ let isLoaded = false;
 let isLoadingAnimationEnd = false;
 const hamburger = document.querySelector('.hamburger') as HTMLButtonElement;
 const navList = document.querySelector('.navbar__list--horizontal') as HTMLUListElement;
-const navBar = document.querySelector(".navbar--top") ;
+const navBar = document.querySelector(".navbar--top") as HTMLElement;
 // const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelectorAll('.navbar__item--horizontal');
-let anchorLinks = gsap.utils.toArray(navLinks);
+const navBarLinks = document.querySelectorAll('.navbar__item__link--horizontal') ;
+let anchorLinks = gsap.utils.toArray(navBarLinks);
 const toggleButton = document.querySelector('.form__toggle-button') as HTMLButtonElement;
 const toggleButtonMain = document.querySelector('.leadin--cta-btn') as HTMLButtonElement;
 const closeButton = document.querySelector('#closeButton') as HTMLButtonElement;
@@ -67,151 +78,52 @@ const tl = gsap.timeline({
     //   opacity:0,
     }
   });
-
-
-   function toggleIframe() {
-        if (isOpen) {
-            // Slide out
-            tl.to(iframeContainer, {
-                x: '100%',
-                duration: 0.5,
-                ease: 'power2.out',
-                onComplete: () => {
-                    iframeContainer.style.display = 'none';
-                }
-            });
-            toggleButton.textContent = 'Open Form';
-        } else {
-            // Slide in
-            iframeContainer.style.display = 'flex';
-            tl.fromTo(
-                iframeContainer,
-                { x: '100%' },
-                { x: '0%', duration: 0.5, ease: 'power2.out' }
-            );
-            toggleButton.textContent = 'Close Form';
-            
-        }
-        isOpen = !isOpen;
-    }
-
-
-const tlTrios = gsap.timeline({ paused: true });
-// tlTrios.to(iframeContainer, {
-//   duration: 0.5,
-//   x: 400,
-//   opacity: 0.8,
-//   ease: 'power2.out',
-// });
-
-tlTrios.to(iframeContainer, {
-  x: '0',
-  duration: 0.5,
-  ease: 'power2.out',
-});
-let isOpen2 = false;
-       function toggleIframetertiary() {
-        toggleButtonMain.classList.toggle('active');
-        // let isClicked = toggleButtonMain.classList.contains("active");
-          
-        if (!isOpen2) {
-          console.log("if");
-          tlTrios.play();
-        // tlTrios.reverse();
-            toggleButton.textContent = 'Open Form';
-        } else {
-          console.log("else");
-            // Slide in
-            // tlTrios.play();
-            tlTrios.reverse();
-            iframeContainer.style.display = 'flex';
-          //   tlTwo.to(iframeContainer, {
-          //       x: '0%',
-          //       duration: 0.5,
-          //       ease: 'power2.out',
-          // })
-            toggleButton.textContent = 'Close Form';
-            
-        }
-        isOpen2 = !isOpen2;
-    }
-  //  function toggleIframetertiary() {
-  //   console.log("toggled poo");
-  //   let isClicked = toggleButtonMain.classList.contains("active");
-  //   toggleButtonMain.classList.toggle('active');
-  //   // if (isClicked) {
-  //   //   iframeContainer.style.display = 'flex';
-  //   //   tl.fromTo(
-  //   //       iframeContainer,
-  //   //       { x: '100%' },
-  //   //       { x: '0%', duration: 0.5, ease: 'power2.out', 
-      
-  //   //       }
-  //   //   );
-  //   //         toggleButtonMain.textContent = 'Close Form';
-          
-  //   //          console.log("toggled close poo");
-  //   //       }
-  //   // else {
-  //   //           tl.to(iframeContainer, {
-  //   //             x: '100%',
-  //   //             duration: 0.5,
-  //   //             ease: 'power2.out',
-  //   //             // onComplete: () => {
-  //   //             //     iframeContainer.style.display = 'none';
-  //   //             // }
-  //   //         });
-  //   //         toggleButtonMain.textContent = 'Open Form';
-  //   //       }
-  //           if (isClicked) {
-  //             toggleButtonMain.textContent = 'Close Form';
-  //             tlTwo.reverse();
-  //           } else {
-  //             toggleButtonMain.textContent = 'Open Form';
-  //             iframeContainer.style.display = 'flex';
-  //             tlTwo.play();
-  //           }
-  //       // if (isOpen ) {
-  //       //     console.log("if toggled ");
-  //       //     tl.to(iframeContainer, {
-  //       //         x: '100%',
-  //       //         duration: 4,
-  //       //         ease: 'power2.out',
-  //       //         // onComplete: () => {
-  //       //         //     iframeContainer.style.display = 'none';
-  //       //         // }
-  //       //     });
-  //       //     toggleButtonMain.textContent = 'Open Form';
-  //       // } else {
-  //       //     iframeContainer.style.display = 'flex';
-  //       //    tl.fromTo(
-  //       //         iframeContainer,
-  //       //         { x: '100%' },
-  //       //         { x: '0%', duration: 0.5, ease: 'power2.out' }
-  //       //     );
-  //       //     toggleButtonMain.textContent = 'Close Form';
-  //       //      console.log("toggled close poo");
-  //       // }
-  //       // isOpen = !isOpen;
-  //   }
-
-toggleButton.addEventListener('click', toggleIframe);
-closeButton.addEventListener('click', toggleIframe);
-
-toggleButtonMain.addEventListener('click',(e) => {
-  // toggleButtonMain.classList.add("active");
-  // toggleButtonMain.classList.toggle('active');
-  toggleIframetertiary();
-
-});
-// closeButton.addEventListener('click', toggleIframe);
-    // Optional: Close on outside click
-    document.addEventListener('click', (e) => {
-        if (isOpen && !iframeContainer.contains(e.target) && !toggleButton.contains(e.target)) {
-            toggleIframe();
-            // toggleIframetertiary();
-        }
+const formTL = gsap.timeline({
+      defaults: {
+        ease: "power4.inOut",
+      //   opacity:0,
+      }
     });
+let smoother = ScrollSmoother.create({
+  wrapper: "#smooth-wrapper",
+  content: "#smooth-content",
+  smooth: 2,
+  effects: true,
+  normalizeScroll: true,
+});
+
+
+  const sharedToggle = () => {
+    if (isOpen) {
+        // closing logiic
+        formTL.to(iframeContainer, {
+            x: '100%',
+            duration: 0.5,
+            ease: 'power2.out',
+            onComplete: () => {
+                iframeContainer.style.display = 'none';
+            }
+        });
+        toggleButton.textContent = 'Open Form';
+        toggleButtonMain.textContent = 'Schedule A Free Consultation';
+    } else {
+        // opening logic
+        iframeContainer.style.display = 'flex';
+        formTL.fromTo(
+            iframeContainer,
+            { x: '100%' },
+            { x: '0%', duration: 0.5, ease: 'power2.out' }
+        );
+        toggleButton.textContent = 'Close Form';
+        toggleButtonMain.textContent = 'Close Form';
+    }
+    isOpen = !isOpen;
+};
+
+toggleButton.addEventListener('click', sharedToggle);
+toggleButtonMain.addEventListener('click', sharedToggle);
+closeButton.addEventListener('click', sharedToggle);
+
 
 function openMobileMenu() {
   gsap.to('.navbar__list--horizontal', {
@@ -226,56 +138,62 @@ function openMobileMenu() {
       
 // Helper: Animate mobile menu out
 function closeMobileMenu() {
-  gsap.to('.navbar__list--horizontal', {
+ 
+  tl.to('.navbar__list--horizontal', {
     x: '-100%',
     opacity: 0,
+    autoAlpha: 0,
     duration: 0.4,
+    delay: 0.5,
     pointerEvents: 'none',
     ease: 'power4.in'
   });
   navBar.classList.remove("active");
+
 }
 
 
 function setupSmoothAnchors() {
-  anchorLinks.forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = (this as HTMLAnchorElement).getAttribute('href');
-      if (!href || !href.startsWith('#')) return;
-      const target = document.querySelector(href);
-      if (!target) return;
 
-      e.preventDefault();
-      gsap.to(window, {
-        duration: 1,
-        scrollTo: { y: target, offsetY: 70 },
-        ease: 'power2.out'
+  const hamburger = document.querySelector('.hamburger') as HTMLElement;
+  let hamburgerIsOpen = hamburger.classList.contains("open");
+
+  anchorLinks.forEach(link => {
+
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+          if (!href || href === '#') {
+          console.warn('Invalid href:', href);
+          return;
+        }
+          const target = document.querySelector(href);
+          if (!target) {
+            console.warn(`Target ${href} not found`);
+            return;
+          }
+          console.log('Scrolling to:', href, target); // Debug
+          smoother.scrollTo(target, true, "top 70px");
+
+          mm.add("(max-width: 786px)", () => {
+            gsap.delayedCall(0.5, () => {
+              
+              if (hamburgerIsOpen) {
+                hamburger.classList.remove('open');
+                closeMobileMenu();
+                hamburger.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+        });
       });
-      
-      // For mobile: close menu after click
-       mm.add("(min-width: 787px)", () => {
-        closeMobileMenu();
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-       });
-      // if (window.innerWidth <= 768) {
-      //   closeMobileMenu();
-      //   hamburger.classList.remove('open');
-      //   hamburger.setAttribute('aria-expanded', 'false');
-      // }
-    });
-  });
-}
-// function closeMenuOnClick() {
-// anchorLinks.forEach(anchor => {
-//   anchor.addEventListener('click', function (e:Event) {
-//     closeMobileMenu();
-//   })
-// })
-// }
+
+    }
+
 
 // Close menu on outside click (mobile only)
 function setupClickOutside() {
+  
   const clickHandler = (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     const isMenuClick = navList.contains(target) || hamburger.contains(target);
@@ -298,18 +216,21 @@ function setupHamburgerMenu() {
   // Initial mobile menu state
 
   
-  gsap.set(navList, { x: '-100%', opacity: 0, pointerEvents: 'none' });
+  // gsap.set(navList, { x: '-100%', opacity: 0, pointerEvents: 'none' });
 
   hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    if (isOpen) {
+    const isOpenTwo = hamburger.classList.toggle('open');
+    let hamburgerIsOpen = hamburger.classList.contains("open");
+    hamburger.setAttribute('aria-expanded', isOpenTwo ? 'true' : 'false');
+    
+    if (hamburgerIsOpen) {
       navList.classList.add('active');
       navBar.classList.add("active");
       openMobileMenu();
     } else {
-      // closeMenuOnClick();
-      closeMobileMenu();
+      gsap.set(navList, { clearProps: 'all' });
+      // closeMobileMenu();
+      // hamburger.classList.remove('open');
       setTimeout(() => navList.classList.remove('active'), 400);
     }
   });
@@ -329,62 +250,21 @@ function setupHamburgerMenu() {
 }
 
 
-
-// document.fonts.ready.then(() => {
-//   let text = document.querySelector(".howitworks--paragraphtext") as HTMLElement;
-//   gsap.set(text, { opacity: 1 });
-//   let mySplitText = SplitText.create(text, {
-//     type: "chars, words",
-//     charsClass: "char"
-//   });
-//   let chars = mySplitText.chars;
-
-//   document.querySelector(".howitworks__gridcard").addEventListener("mouseover", (e) => {
-//     if (!text.isSplit) {
-//       mySplitText.split({
-//         type: "chars, words",
-//         charsClass: "char"
-//       });
-//     }
-//     gsap.from(chars, {
-//       duration: 3,
-//       opacity: 0,
-//       scale: 0,
-//       y: 80,
-//       rotationX: 180,
-//       transformOrigin: "0% 50% -50",
-//       ease: "back",
-//       stagger: 0.05,
-//       onComplete: () => {
-//         mySplitText.revert();
-//         text.removeAttribute("aria-hidden");
-//       }
-//     });
-//   });
-// });
-
-
 document.addEventListener('DOMContentLoaded', () => {
-  // animateNavbarIn();
   setupSmoothAnchors();
   mm.add("(max-width: 786px)", () => {
-  // navBar.classList.add("active");
   setupClickOutside();
   setupHamburgerMenu();
   });
-
-
+  // setupSectionAnimations();
      // Debugging: Check if elements are found
-    if (!toggleButton || !closeButton || !iframeContainer) {
-        console.error('One or more elements not found:', {
-            toggleButton,
-            closeButton,
-            iframeContainer
-        });
-        return;
+  if (!toggleButton || !closeButton || !iframeContainer) {
+      console.error('One or more elements not found:', {
+          toggleButton,
+          closeButton,
+          iframeContainer
+      });
+      return;
     }
-
-    let isOpen = false;
-
-    // toggleIframe()
+    // let isOpenTwo = false;
 });
