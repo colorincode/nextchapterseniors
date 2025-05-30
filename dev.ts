@@ -18,7 +18,7 @@ import { startDinoAnimation } from "./utils/dino.ts";
 import { runBenches } from './utils/performance-test.ts';
 import { transformHTML } from "./transformHTML.ts";
 
-const { stopAnimation, updateStatus } = startDinoAnimation(false);
+// const { stopAnimation, updateStatus } = startDinoAnimation(false);
 let currentWatcher: Deno.FsWatcher | null = null;
 //defs
 interface Server {
@@ -84,23 +84,23 @@ async function build(changedFiles: Set<string> | null = null) {
   try {
     // updateStatus("🔧 building dist HTML...");
     await transformHTML( changedFiles);
-    updateStatus("HTML");
+    // updateStatus("HTML");
 
     // updateStatus("⚙️  transpiling dist TypeScript...");
     await transformTS(changedFiles);
-    updateStatus("JS");
+    // updateStatus("JS");
 
     // updateStatus("🎨 compiling dist SCSS...");
     await transformSCSS(changedFiles);
-    updateStatus("CSS");
+    // updateStatus("CSS");
 
     // updateStatus("📦 processing dist Assets...");
     await transformAssets(changedFiles);
-    updateStatus("assets");
+    // updateStatus("assets");
 
-    stopAnimation();
+    // stopAnimation();
   } catch (error) {
-    stopAnimation();
+    // stopAnimation();
     console.error("❌ error during dist build process:", error);
   }
 }
