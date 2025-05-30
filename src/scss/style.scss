@@ -1,6 +1,8 @@
 // @use 'colors' as c;
 @use './helpers.scss' as *;
-
+* {
+  box-sizing: border-box;
+}
 body {
   background: var(--off-white);
   overscroll-behavior: none;
@@ -174,10 +176,18 @@ body {
   object-fit: cover;
   display: flex;
   max-width: 384px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   height: fit-content;
   border-radius: 5px;
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 896px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    min-height: 100%;
+    height: auto;
+  }
 }
 .about--grid--header {
   font-family: var(--ff-geneo-std);
@@ -524,7 +534,10 @@ h4.howitworks--textvariant.caption--heading {
   padding: 1rem 0 1rem 0;
   margin: 1rem auto 0 auto;
   max-width: unset;
-  background-position: top 130px right 0px;
+  background-position: top 0 right 0;
+   @media screen and (min-width:769px) and (max-width:1328px) {
+  background-position: top 130px right 0;
+   }
   @media screen and (max-width:768px) {
     background: url(../../assets/GettyImages-1203192990.jpg) right 0px top 0px / cover fixed no-repeat;
     margin: 0;
@@ -533,11 +546,11 @@ h4.howitworks--textvariant.caption--heading {
 }
 #contact.content-section {
   background: none;
-  width: 90%;
+  width: 100%;
   padding: unset;
   max-width: unset;
   @media screen and (max-width:768px) {
-    width: auto;
+    width: 90%;
     padding: 0.75rem;
   }
 }
@@ -551,7 +564,7 @@ h4.howitworks--textvariant.caption--heading {
     backdrop-filter: blur(12px);
     border-radius: 10px;
     @media screen and (max-width:768px) { 
-      padding: 1.5rem 0.5rem;
+      padding: 0;
     }
 
 }
@@ -567,15 +580,32 @@ h4.howitworks--textvariant.caption--heading {
   margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 1.5;
+  @media screen and (max-width:768px) {
+    padding: 0.75rem;
+  }
 }
 
 
-#contact .cta-button {
+#contact .cta-button  {
     display: block;
-    margin: 2rem auto;
+    margin: 1rem auto;
     text-align: center;
     font-family: var(--ff-acumin-pro);
     font-weight: 600;
+    border: none;
+    @media screen and (max-width:768px) {
+      width: 100%;
+      padding: .8rem 2rem;
+      margin: 0;
+    }
+}
+#contact .form__toggle-button {
+  @media screen and (max-width:768px) {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      min-height: 43px;
+    }
 }
 .lead-section {
     display: grid;
@@ -664,24 +694,21 @@ h4.howitworks--textvariant.caption--heading {
   padding: 0.25rem 0;
 }
 .service-card {
-   background: color-mix(
+  background: color-mix(
     in oklab,
     var(--maya-blue-ok) 10%,
     var(--off-white) 90%
   );
-    // background-color: var(--uranian-blue);
-    padding: 0 1rem 0.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    // align-items: center;
-    align-self: center;
-    justify-content: flex-start;
-    min-height: -webkit-fill-available;
-    // height: 300px;
-    border-radius: 1rem;
-    box-shadow: 0 3px 4px var(--uranian-blue-ok);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+  padding: 0 1rem 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: flex-start;
+  // min-height: -webkit-fill-available;
+  border-radius: 1rem;
+  box-shadow: 0 3px 4px var(--uranian-blue-ok);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .service-card-icon {
@@ -821,6 +848,7 @@ h4.howitworks--textvariant.caption--heading {
 }
 .splide--mobile {
   @media screen and (max-width:768px) {
+    width: 100%!important;
     padding-left: 0!important;
     padding-right: 0!important;
   }
@@ -843,23 +871,28 @@ h4.howitworks--textvariant.caption--heading {
   max-width: 90rem;
   width: 100%;
   margin: 0 auto;
-  // background: var(--semi-transparent);
-  // backdrop-filter: blur(13px);
   background: transparent;
-  // background: color-mix(
-  //   in oklab,
-  //   var(--vanilla-hsla) 10%,
-  //   var(--off-white) 90%
-  // );
-  // border-radius: 10px;
-  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   @media screen and (max-width:768px) {
     display: flex;
     flex-direction: column;
-    width: auto;
+    // justify-content: center;
+    // align-content: center;
+    // align-items: center;
+    margin: auto;
+    justify-items: center;
+    width: 100%;
   }
 }
-
+.contact--btn__wrapper > a  {
+  @media screen and (max-width:768px) { 
+    padding: 0.5rem;
+  }
+}
+.contact--btn__wrapper  button  {
+  @media screen and (max-width:768px) { 
+    padding: 0.5rem;
+  }
+}
 
 //form--styles
 .form__toggle-button {
@@ -1099,8 +1132,8 @@ h4.howitworks--textvariant.caption--heading {
 //general mq
 @media (max-width:768px) {
       .content-section {
-        width: auto;
-        padding: 1.5rem;
+        width: 90%;
+        padding: 0;
     }
     .leadin--header--outerwrapper {
         min-height: 25.5vh;

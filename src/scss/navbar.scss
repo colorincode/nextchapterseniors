@@ -89,6 +89,26 @@
     outline: none;
 }
 
+.navbar__call--btn--item--horizontal {
+    align-self: center;
+    // padding: 0 4rem 0 2rem;
+    padding: 0 4% 0 2%;
+    @media screen and (max-width:1120px) {
+        padding: 0 2% 0 1%;
+    }
+}
+.navbar__item__call--btn--horizontal { 
+    font-family: var(--ff-poppins);
+    font-weight: var(--semibold);
+    color: var(--off-black);
+    font-size: 1rem;
+    // letter-spacing: .095em;
+    line-height: 2;
+    text-transform: capitalize;
+    white-space: nowrap;
+    outline: none;
+}
+
 .navbar__item--horizontal:hover {
     transition: all 0.3s ease 0s; 
     // border-bottom: 2px solid var(--butterscotch-ok);
@@ -267,6 +287,10 @@
     justify-content: space-evenly;
     text-align: center;
     align-content: center;
+    @media screen and (max-width: 768) {
+        height: 100dvh;
+        padding: 0 2rem;
+    }
   }
   .navbar__list--horizontal.active {
     pointer-events: auto;
