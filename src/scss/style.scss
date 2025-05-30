@@ -799,17 +799,17 @@ h4.howitworks--textvariant.caption--heading {
   pointer-events: none; /* Allow clicking through the pattern layer */
 }
 .splide__track--blockquote {
-    font-family: var(--ff-acumin-pro);
-    font-size: var(--paragraph);
-    font-style: italic;
-    color: color-mix(in oklab, var(--orange-crayola-ok) 90%, var(--off-black) 10%);
-    text-align: left;
-    word-wrap: normal;
-    line-height: 1.75;
-    padding: 3rem 2rem 1rem 2rem;
+    font-family: var(--ff-acumin-pro)!important;
+    font-size: var(--paragraph)!important;
+    font-style: italic!important;
+    color: color-mix(in oklab, var(--orange-crayola-ok) 90%, var(--off-black) 10%)!important;
+    text-align: left!important;
+    word-wrap: normal!important;
+    line-height: 1.75!important;
+    padding: 3rem 2rem 1rem 2rem!important;
     @media screen and (max-width:768px) {
-      padding: 3rem 0 0 0;
-      line-height: 1.5;
+      padding: 3rem 0 0 0!important;
+      line-height: 1.5!important;
     }
 }
 
