@@ -65,6 +65,10 @@ body {
   margin: 0 auto;
   padding: 0;
   background-position: top 0px right 0px;
+  transition: all .5s ease-in-out;
+  @media screen and (min-width:1600px) {
+    background-position: top -340px right 0px;
+  }
   @media screen and (max-width:768px) {
     background: url('../../assets/main-lead.jpg') center top / cover;
   }
@@ -549,6 +553,9 @@ h4.howitworks--textvariant.caption--heading {
   margin: 1rem auto 0 auto;
   max-width: unset;
   background-position: top 0 right 0;
+  @media screen and (min-width:1600px) {
+    background-position: top -120px right 0px;
+  }
    @media screen and (min-width:769px) and (max-width:1328px) {
     background-position: top 0 right 0;
    }
