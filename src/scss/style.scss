@@ -41,7 +41,7 @@ body {
 }
 .caption--paragraphtext.lightblue--textvariant {
   // padding: 0.15rem 0.25rem 0 0.5rem;
-    padding: 0.25rem 0;
+  padding: 0.25rem 0;
   margin: auto;
 }
 
@@ -72,13 +72,12 @@ body {
 .leadin--header--innerwrapper {
   display: flex;
   margin-top: 15vh;
-  margin-left: 2vw;
-  max-width: 90rem;
-  width: 90%;
+  width: auto;
+  // max-width: 90rem;
   align-self: flex-start;
   color: var(--vanilla-ok);
   flex-direction: column;
-  margin: 15vh auto;
+  margin: 15vh 96px;
   @media screen and (min-width:1668px) {
   //  margin-top: 6vh;
   // margin-left: 2vw;
@@ -200,7 +199,7 @@ body {
 
 
 .content-section {
-  padding: 1rem 1rem;
+  padding: 1rem 0;
   background-color: var(--off-white);
   // max-width: 90rem;
   width: calc(100% - 192px);
@@ -216,22 +215,45 @@ body {
 }
 
 .howitworks__gridwrapper {
-  // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  // gap: 2rem;
-  // display: grid;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin: 1rem auto; //corrects box shadow overflow
-  @media screen and (max-width:768px) {
+  @media screen and (max-width:1111px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
+  // @media screen and (max-width:768px) {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   justify-content: center;
+  //   text-align: center;
+  // }
 }
+
+.breakpt--gridcard--hide {
+  @media screen and (max-width:1644px) {
+    display: none!important;
+  }
+  @media screen and (max-width:1111px) {
+    display: flex!important;
+  }
+}
+.breakpt--gridcard--show {
+  display: none;
+  @media screen and (max-width:1644px) {
+    display: flex;
+  }
+  @media screen and (max-width:1111px) {
+    display: none;
+  }
+}
+
 .howitworks--textvariant {
   color: color-mix(in oklab, var(--maya-blue-ok) 10%, var(--off-white) 90%);
   position: absolute;
@@ -344,13 +366,19 @@ body {
   max-height: 260px;
   // max-height: 580px;
   // min-height: 140px;
+  @media screen and (max-width:1111px) {
+    max-width: 400px;
+  }
   @media screen and (max-width:768px) {
     max-width: 100%;
   }
-    @media screen and (min-width:769px) and (max-width:1420px){
-    max-width: 200px;
-    flex-wrap: nowrap;
-  }
+  // @media screen and (max-width:768px) {
+  //   max-width: 100%;
+  // }
+  //   @media screen and (min-width:769px) and (max-width:1420px){
+  //   max-width: 200px;
+  //   flex-wrap: nowrap;
+  // }
 }
 // changed added class
 .howitworks__gridcard:hover .howitworks--transition__wrapper {
@@ -532,7 +560,7 @@ h4.howitworks--textvariant.caption--heading {
 }
 #contact.content-section {
   background: none;
-  width: 100%;
+  // width: 100%;
   padding: unset;
   max-width: unset;
   @media screen and (max-width:768px) {
@@ -542,7 +570,7 @@ h4.howitworks--textvariant.caption--heading {
 }
 .contact-content__innerwrap {
     padding: 2rem 1rem;
-    max-width: 90rem;
+    // max-width: 90rem;
     width: 100%;
     margin: 0 auto;
     border: 1px solid var(--pale-dogwood);
@@ -1044,8 +1072,8 @@ h4.howitworks--textvariant.caption--heading {
 }
 .global__footerwrapper--inner{
   width: 100%;
-  max-width: 90rem;
-  margin: 7rem auto 0 auto;
+  // max-width: 90rem;
+  margin: 7rem 96px 0 96px;
   padding: 0.5rem 1rem;
   backdrop-filter: blur(13px);
   border: 1px solid var(--semi-transparent);
