@@ -18,15 +18,15 @@ body {
   font-size: var(--paragraph);
   color: color-mix(in oklab, var(--off-black) 90%, var(--off-white) 10%);
   padding: 1rem 1rem 0 1rem;
-
+  
   // padding: 1rem 0;
 }
 .section--heading {
   font-family: var(--ff-degular);
   font-size: var(--subhead-md);
-  text-align: center;
+  text-align: left;
   // margin-bottom: 1rem;
-  padding: 1rem 1rem;
+  padding: 1rem 1.5rem 0 1.5rem;
   color: color-mix(in oklab, var(--maya-blue-ok) 70%, var(--off-black) 30%);
 }
 .caption--paragraphtext {
@@ -56,7 +56,6 @@ body {
 }
 .leadin--header--outerwrapper {
   width:100%;
-  min-height: 75vh;
   background: url('../../assets/main-lead.jpg') center top / cover;
   position: relative;
   top: 0;
@@ -65,10 +64,8 @@ body {
   background-attachment: fixed;
   margin: 0 auto;
   padding: 0;
-  background-position: top -234px right 0px;
-  min-height: 61vh;
+  background-position: top 0px right 0px;
   @media screen and (max-width:768px) {
-    min-height: 25.5vh;
     background: url('../../assets/main-lead.jpg') center top / cover;
   }
 }
@@ -92,7 +89,8 @@ body {
     font-family: var(--ff-degular);
     font-size: var(--header);
     font-weight: var(--bold);
-    color: var(--vanilla);
+    // color: var(--vanilla);
+    color: #fff;
     margin: 1rem 0 1rem 0;
 }
 .leadin--header--subtitle {
@@ -204,14 +202,16 @@ body {
 .content-section {
   padding: 1rem 1rem;
   background-color: var(--off-white);
-  max-width: 90rem;
-  width: 100%;
-  margin: 0 auto;
+  // max-width: 90rem;
+  width: calc(100% - 192px);
+  margin: 0 96px;
+  // margin: 0 auto;
   position: relative;
   border-radius: 1rem;
   @media screen and (max-width:768px) {
-  width: 90%;
-  padding: 0;
+    margin: 0 auto;
+    width: 90%;
+    padding: 0;
   }
 }
 
@@ -241,7 +241,6 @@ body {
   width: 100%;
   padding: 0.5rem 0 0 0;
   margin: 0;
-
 }
 // .howitworks--paragraphtext {
 //     color: color-mix(in oklab, var(--maya-blue-ok) 70%, var(--off-black) 30%);
@@ -302,6 +301,7 @@ body {
   box-shadow: 0 4px 8px #2419191a;
   margin-block-start: 0;
   padding-inline-start: 0;
+  padding: 1rem 0;
 }
 .howitworks__list--span {
   // color: color-mix(in oklab, var(--sunglow-ok) 80%, var(--off-black) 20%);
@@ -313,7 +313,7 @@ body {
 .howitworks__list li {
   min-height: 4rem;
   border-radius: 10px;
-  padding:1rem 1rem;
+  padding: .5rem 1rem;
   // background: color-mix(in oklab, var(--uranian-blue) 30%, var(--off-white) 70%);
   // border: 2px solid var(--maya-blue-ok);
 }
@@ -359,7 +359,8 @@ body {
   height: 100%;
 }
 .howitworks--textvariant.caption--heading {
-  color: var(--off-white);
+  // color: var(--off-white);
+  color: #000;
   padding: 0.75rem;
   position: absolute;
   top:50%;
@@ -412,11 +413,11 @@ h4.howitworks--textvariant.caption--heading {
   }
 }
 .howitworks__blockquote {
-    background: linear-gradient(120deg, oklch(0.94 0.08 92.59 / 0.38), oklch(0.92 0.05 63.32 / 0.39));
-    box-shadow: 0 3px 6px #0000001a;
-    padding: 0 2rem;
-    border-radius: 10px;
-    transition: all 0.4s ease-in-out;
+  background: linear-gradient(120deg, oklch(0.94 0.08 92.59 / 0.38), oklch(0.92 0.05 63.32 / 0.39));
+  box-shadow: 0 3px 6px #0000001a;
+  padding: 0 2rem;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
 }
 .howitworks__btnwrap {
   display: flex;
@@ -432,7 +433,7 @@ h4.howitworks--textvariant.caption--heading {
 .howitworks__blockquote-heading {
   font-family: var(--ff-degular);
   font-size: var(--subhead-md);
-  text-align: center;
+  // text-align: center;
   padding: 1rem 1rem;
   color: color-mix(in oklab, var(--maya-blue-ok) 70%, var(--off-black) 30%);
 }
@@ -562,6 +563,8 @@ h4.howitworks--textvariant.caption--heading {
   text-align: left;
   color: var(--off-black);
   word-wrap: normal;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 1.5;
@@ -654,11 +657,13 @@ h4.howitworks--textvariant.caption--heading {
     font-family: var(--ff-acumin-pro);
     font-size: var(--small-text-clamp);
     text-align: left;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    // margin-top: 1rem;
+    // margin-bottom: 1rem;
+    margin: 1.5rem;
     color: var(--off-black);
     word-wrap: normal;
     line-height: 1.5;
+    // padding: 0 1rem 0 1rem;
   
   }
 .services-grid {
