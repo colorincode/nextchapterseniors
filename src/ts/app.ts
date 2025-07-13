@@ -93,6 +93,28 @@ let smoother = ScrollSmoother.create({
   normalizeScroll: true,
 });
 
+// const gridCards = gsap.timeline({});
+// const gridCardSelectors = document.querySelectorAll(".howitworks__gridcard");
+// let hover = false;
+
+// gridCardSelectors.forEach(function(element, i) {
+  
+//   element.addEventListener("mouseover", function( event ) {
+//     if(!hover) {
+//       gridCards.to(element, {transformOrigin:"0% 0%", scale:1, visibility:"visible", flexGrow:2, opacity:1,maxWidth:400});
+//       // TweenMax.to(element, 1, {transformOrigin:"50% 50%", scale:2});
+//     }
+//     hover = true;
+//   }, false);
+  
+//   element.addEventListener("mouseleave", function( event ) {
+//     hover = false;
+//     gridCards.to(element, {transformOrigin:"0% 0%", scale:0, flexShrink:1,});
+//     // TweenMax.to(element, 1, {transformOrigin:"50% 50%", scale:1});
+//   }, false);
+  
+// });
+
 
   const sharedToggle = () => {
     if (isOpen) {
@@ -153,21 +175,6 @@ function closeMobileMenu() {
 
 }
 
-// let bodyScrollBar = Scrollbar.init(document.body, { damping: 0.1, delegateTo: document });
- 
-// bodyScrollBar.setPosition(0, 0);
-// bodyScrollBar.track.xAxis.element.remove();
-
-// ScrollTrigger.scrollerProxy(document.body, {
-//   scrollTop(value) {
-//     if (arguments.length) {
-//       bodyScrollBar.scrollTop = value;
-//     }
-//     return bodyScrollBar.scrollTop;
-//   }
-// });
-
-// bodyScrollBar.addListener(ScrollTrigger.update);
 
 
 function setupSmoothAnchors() {

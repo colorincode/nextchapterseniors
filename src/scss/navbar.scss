@@ -22,21 +22,21 @@
     transition-property: transform, height, box-shadow;
     transition-duration: .3s;
     transition-timing-function: ease;
-    // width: 90rem;
+    display: flex;
     width: 100%;
     height: 86px;
-    margin: 0 auto;
+    margin: 0 96px;
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
     @media screen and (max-width:1367px) and (min-width:942px) {
         width: 98%;
     }
-     @media screen and (min-width:1368px) {
-    // margin-top: 15vh;
-    max-width: 90rem;
-    // margin-left: 13vw;
-  }
+  //    @media screen and (min-width:1368px) {
+  //   // margin-top: 15vh;
+  //   max-width: 90rem;
+  //   // margin-left: 13vw;
+  // }
 }
 .navbar--logo {
     display: inline-flex;
@@ -50,13 +50,17 @@
     align-items: flex-start;
     align-content: space-between;
     margin: 0;
-    flex-wrap: wrap;
+    flex-flow: nowrap;
+    flex-shrink: 1;
     justify-items: flex-start;
     justify-content: space-evenly;
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
     width: 100%;
+    // @media screen and (min-width:943px) and (max-width:1200px) {
+
+    // }
 }
 .navbar--bottom {}
 .navbar--left {}
@@ -71,9 +75,12 @@
 .navbar__item--horizontal {
     align-self: center;
     // padding: 0 4rem 0 2rem;
-    padding: 0 4% 0 2%;
-    @media screen and (max-width:1120px) {
-        padding: 0 2% 0 1%;
+    padding: 0 2% 0 2%;
+    // @media screen and (max-width:1120px) {
+    //     padding: 0 2% 0 1%;
+    // }
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    padding: 0 1% 0 1%;
     }
 }
 .navbar__item--vertical {}
@@ -83,20 +90,26 @@
     font-weight: var(--semibold);
     color: var(--off-black);
     font-size: 1rem;
-    // letter-spacing: .095em;
     line-height: 2;
     text-transform: capitalize;
     white-space: nowrap;
     outline: none;
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    font-size: 0.75rem;
+    }
 }
 
 .navbar__call--btn--item--horizontal {
     align-self: center;
     // padding: 0 4rem 0 2rem;
-    padding: 0 4% 0 2%;
-    @media screen and (max-width:1120px) {
-        padding: 0 2% 0 1%;
+    padding: 0 3% 0 3%;
+    // @media screen and (max-width:1120px) {
+    //     padding: 0 2% 0 1%;
+    // }
+      @media screen and (min-width:943px) and (max-width:1200px) {
+      padding: 0 1.666667% 0 1.666667%;
     }
+
 }
 .navbar__item__call--btn--horizontal { 
     font-family: var(--ff-poppins);
@@ -116,17 +129,16 @@
     // color: var(--butterscotch-ok);
     transform: scale(1.05);
 }
-.navbar__item__link--horizontal:hover {
-    // color: var(--butterscotch-ok);
-    // transform: scale(1.05);
-    // color: hsla(0, 0%, 20%, 0.61);
-    //  color: var(--vanilla);
-    //   color: var(--butterscotch-ok);
-}
+// .navbar__item__link--horizontal:hover {
+
+// }
 
 .navbar__item__img--horizontal {
     width: auto;
     height: 96px;
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    height: 75px;
+    }
 }
 .navbar__item__link--vertical {
     font-weight: 500;
@@ -142,11 +154,16 @@
     padding: 1rem 1.75rem;
     box-shadow: 3px 2px 3px #0000001a;
     transition: all 0.3s ease;
-    
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    padding: 0.75rem 1.25rem;
+    }
+    @media screen and (min-width:1201px) and (max-width:3468px) {
+    padding: 1rem 2.75rem;
+  }
 }
 .cta--btn:hover {
     background-color: var(--orange-crayola);
-     color: var(--vanilla);
+    color: var(--vanilla);
     transform: translateY(-3px);
 }
 .hover-underline-animation {
@@ -327,18 +344,6 @@
 	}
 }
 
-// @keyframes bar-one-animate-back {
-// 	0%{
-// 		transform: translate(0px, 20px) rotate(45deg)
-// 	}
-// 	40% {
-// 		transform: translate(0px, 20px) rotate(0deg);
-// 	}
-// 	100% {
-// 		transform: translate(0px, 0px) rotate(0deg) 
-// 	}
-// }
-
 @keyframes bar-three-animate {
 	0%{
 		transform: translate(0px, 0px) rotate(0deg);
@@ -350,15 +355,3 @@
 		transform: translate(0px, -5px) rotate(135deg);
 	}
 }
-
-// @keyframes bar-three-animate-back {
-// 	0%{
-// 		transform: translate(0px, -20px) rotate(135deg);
-// 	}
-// 	50% {
-// 		transform: translate(0px, -20px) rotate(0deg);
-// 	}
-// 	100% {
-// 		transform: translate(0px, 0px) rotate(0deg) 
-// 	}
-// }
