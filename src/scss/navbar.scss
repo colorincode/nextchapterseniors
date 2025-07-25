@@ -5,9 +5,9 @@
     position: fixed;
     top: 0;
     z-index: 1000;
-    padding: 30px 0 40px 0;
+    padding: 30px 0 0 0;
     display: flex;
-    overflow: hidden;
+    // overflow: hidden;
     width: 100%;
 }
 .navbar--top {
@@ -22,9 +22,10 @@
     transition-property: transform, height, box-shadow;
     transition-duration: .3s;
     transition-timing-function: ease;
-    // width: 90rem;
+    display: flex;
     width: 100%;
-    height: 86px;
+    // height: 86px;
+    height: 94px;
     margin: 0 96px;
     justify-content: space-between;
     align-items: center;
@@ -38,6 +39,43 @@
   //   // margin-left: 13vw;
   // }
 }
+
+.phone-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  // background-color: #fdcc32;
+  border: 1px solid var(--semi-transparent);
+  backdrop-filter: blur(16px);
+  background: #fff9;
+  padding: 20px 25px;
+  border-radius: 1rem;
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--ff-poppins);
+  font-weight: var(--semibold);
+  color: var(--off-black);
+  font-size: 1.1rem;
+  z-index: 1000;
+
+  transform: translate(400px, 86px);
+  transition: transform 0.3s ease, opacity 0.9s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.phone-box.visible {
+  transform: translate(0, 86px);
+  opacity: 1;
+}
+.phone-box > span {
+  padding-top: 5px;
+}
+
+
 .navbar--logo {
     display: inline-flex;
     // align-items: center;
@@ -50,7 +88,8 @@
     align-items: flex-start;
     align-content: space-between;
     margin: 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
     justify-items: flex-start;
     justify-content: space-evenly;
     margin-block-start: 0;
@@ -71,9 +110,12 @@
 .navbar__item--horizontal {
     align-self: center;
     // padding: 0 4rem 0 2rem;
-    padding: 0 4% 0 2%;
-    @media screen and (max-width:1120px) {
-        padding: 0 2% 0 1%;
+    padding: 0 2% 0 2%;
+    // @media screen and (max-width:1120px) {
+    //     padding: 0 2% 0 1%;
+    // }
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    padding: 0 1% 0 1%;
     }
 }
 .navbar__item--vertical {}
@@ -83,20 +125,26 @@
     font-weight: var(--semibold);
     color: var(--off-black);
     font-size: 1rem;
-    // letter-spacing: .095em;
     line-height: 2;
     text-transform: capitalize;
     white-space: nowrap;
     outline: none;
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    font-size: 0.75rem;
+    }
 }
 
 .navbar__call--btn--item--horizontal {
     align-self: center;
     // padding: 0 4rem 0 2rem;
-    padding: 0 4% 0 2%;
-    @media screen and (max-width:1120px) {
-        padding: 0 2% 0 1%;
+    padding: 0 3% 0 3%;
+    // @media screen and (max-width:1120px) {
+    //     padding: 0 2% 0 1%;
+    // }
+      @media screen and (min-width:943px) and (max-width:1200px) {
+      padding: 0 1.666667% 0 1.666667%;
     }
+
 }
 .navbar__item__call--btn--horizontal { 
     font-family: var(--ff-poppins);
@@ -116,17 +164,16 @@
     // color: var(--butterscotch-ok);
     transform: scale(1.05);
 }
-.navbar__item__link--horizontal:hover {
-    // color: var(--butterscotch-ok);
-    // transform: scale(1.05);
-    // color: hsla(0, 0%, 20%, 0.61);
-    //  color: var(--vanilla);
-    //   color: var(--butterscotch-ok);
-}
+// .navbar__item__link--horizontal:hover {
+
+// }
 
 .navbar__item__img--horizontal {
     width: auto;
     height: 96px;
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    height: 75px;
+    }
 }
 .navbar__item__link--vertical {
     font-weight: 500;
@@ -142,7 +189,12 @@
     padding: 1rem 1.75rem;
     box-shadow: 3px 2px 3px #0000001a;
     transition: all 0.3s ease;
-    
+    @media screen and (min-width:943px) and (max-width:1200px) {
+    padding: 0.75rem 1.25rem;
+    }
+    @media screen and (min-width:1201px) and (max-width:3468px) {
+    padding: 1rem 2.75rem;
+  }
 }
 .cta--btn:hover {
     background-color: var(--orange-crayola);
@@ -255,6 +307,7 @@
         margin: 1.5rem 1rem;
     }
     .navbar--top {
+        border: none;
         background: none;
         box-shadow: none;
         backdrop-filter: unset;

@@ -153,6 +153,25 @@ function closeMobileMenu() {
 
 }
 
+// call button toggle
+function handleCallClick(event: any) {
+  const isDesktop = window.innerWidth >  768
+  if(!isDesktop) return
+
+  event.preventDefault()
+
+  const phoneBox = document.getElementById('phoneBox')
+  if(!phoneBox) return
+
+  phoneBox.classList.toggle('visible')
+
+  // const isVisible = phoneBox.style.display === 'flex'
+
+  // phoneBox.style.display = isVisible ? 'none' : 'flex'
+}
+(window as any).handleCallClick = handleCallClick;
+// call button toggle
+
 // let bodyScrollBar = Scrollbar.init(document.body, { damping: 0.1, delegateTo: document });
  
 // bodyScrollBar.setPosition(0, 0);
@@ -292,3 +311,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // let isOpenTwo = false;
 });
+
+// testimonial modal
+const modal = document.getElementById("testimonialModal")
+const modalText = modal.querySelector(".testimonial-modal-text")
+const closeBtn = modal.querySelector(".testimonial-modal-close")
+
+const readMoreBtns = document.querySelectorAll(".testimonial--readmore")
+
+readMoreBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const fullText = btn.getAttribute("data-full-text")
+    modalText.textContent = fullText
+    modal.style.display = "flex"
+    modal.classList.add("show")
+  })
+})
+
+closeBtn.addEventListener("click", () => {
+  // modal.style.display = "none"
+  modal.classList.remove("show")
+})
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    // modal.style.display = "none"
+    modal.classList.remove("show")
+  }
+})

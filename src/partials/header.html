@@ -4,17 +4,31 @@
     </button>
     <nav class="navbar--top">
         <ul class="navbar__list--horizontal">
-            <li class="navbar__item--horizontal" style="padding:unset; margin-top: -12px;">
+            <li class="navbar__item--horizontal" style="padding:unset; margin-top: -16px;">
                 <a class="" href="https://www.nextchapterseniors.com/">
-                <img src="../../assets/next-chapter-trimmed.png" alt="next chapter seniors senior care in silicon valley" class="navbar__item__img--horizontal" />
+                <img src="../assets/next-chapter-logo-black-text.png" alt="next chapter seniors senior care in silicon valley" class="navbar__item__img--horizontal" />
             </a></li>
             <li class="navbar__item--horizontal"><a class="navbar__item__link--horizontal hover-underline-animation" href="#about">About</a></li>
             <li class="navbar__item--horizontal"><a class="navbar__item__link--horizontal hover-underline-animation" href="#services">How it Works</a></li>
             <li class="navbar__item--horizontal"><a class="navbar__item__link--horizontal hover-underline-animation" href="#types">Types of Care</a></li>
             <li class="navbar__item--horizontal"><a class="navbar__item__link--horizontal hover-underline-animation" href="#testimonials">Testimonials</a></li>
             <li class="navbar__item--horizontal"><a class="navbar__item__link--horizontal hover-underline-animation" href="#contact">Contact</a></li>
-            <li class="navbar__call--btn--item--horizontal cta--btn"><a class="navbar__item__call--btn--horizontal cta--text" href="tel:+16503089232" target="_blank"><i class="fa-solid fa-duotone fa-phone-arrow-up-right cta-icon"></i> Call</a></li>
+            <li class="navbar__call--btn--item--horizontal cta--btn">
+                <a 
+                id="callToggle"
+                class="navbar__item__call--btn--horizontal cta--text" 
+                href="tel:+16503089232" 
+                target="_blank"
+                onclick="handleCallClick(event)"
+                >
+                    <i class="fa-solid fa-duotone fa-phone-arrow-up-right cta-icon"></i> 
+                    <span class="cta-label">Call</span>
+                </a>
+            </li>
         </ul>
+        <div id="phoneBox" style="display: flex" class="phone-box">
+            <span>(650) 308-9232</span>
+        </div>
     </nav>
 </header>
 
